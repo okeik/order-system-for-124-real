@@ -1,5 +1,5 @@
 // 管理員密碼
-const ADMIN_PASSWORD = "ILoveFreeDream";
+const ADMIN_PASSWORD = "1234";
 
 // 當前選擇的座號
 let currentSeat = null;
@@ -651,4 +651,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     console.log("訂餐系統初始化完成");
+
 });
