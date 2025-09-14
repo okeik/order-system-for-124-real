@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>訂餐系統</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🍽️ 訂餐系統</h1>
+        
+        <div class="seat-section">
+            <div class="seat-input">
+                <label>座號 (1~31): </label>
+                <input type="number" id="seat-number" min="1" max="31" placeholder="請輸入座號">
+                <button id="confirm-seat-btn">確認座號</button>
+            </div>
+            <div id="status-message"></div>
+        </div>
+
+        <div id="order-input" style="display: none;">
+            <div class="restaurant-section">
+                <h3>🏪 選擇餐廳</h3>
+                <div class="restaurant-selector">
+                    <select id="restaurant">
+                        <option value="">請選擇餐廳</option>
+                        <option value="內訂">🍱 內訂</option>
+                        <option value="蝦米飯">🍤 蝦米飯</option>
+                        <option value="相撲咖哩">🍛 相撲咖哩</option>
+                        <option value="八方雲集">🥟 八方雲集</option>
+                        <option value="琪仙館">🍜 琪仙館</option>
+                    </select>
+                </div>
+                <div id="menu" class="menu-grid"></div>
+            </div>
+
+            <div class="order-summary">
+                <h3>📋 訂單清單</h3>
+                <ul id="order-items" class="order-list"></ul>
+                <div class="total-price">
+                    總價: <span id="total">0</span> 元
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-section">
+            <h3>👑 管理員功能</h3>
+            <div class="admin-input">
+                <input type="password" id="admin-password" placeholder="輸入管理員密碼">
+                <button id="view-orders-btn">查看所有訂單</button>
+                <button id="clear-orders-btn" class="clear-all-btn">清空所有訂單</button>
+            </div>
+            <div id="all-orders" class="all-orders"></div>
+        </div>
+    </div>
+
+    <!-- 數量選擇彈窗 -->
+    <div id="quantity-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="modal-item-name">商品名稱</h4>
+                <span id="close-modal" class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="price-info">
+                    單價: <span id="modal-item-price">0</span> 元
+                </div>
+                <div class="quantity-selector">
+                    <label>數量:</label>
+                    <div class="quantity-controls">
+                        <button type="button" id="decrease-qty" class="quantity-btn">-</button>
+                        <input type="number" id="quantity-input" value="1" min="1" max="99">
+                        <button type="button" id="increase-qty" class="quantity-btn">+</button>
+                    </div>
+                </div>
+                <div class="subtotal">
+                    小計: <span id="modal-subtotal">0</span> 元
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-order-btn" class="cancel-btn">取消</button>
+                <button id="confirm-order-btn" class="confirm-btn">確認加入</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
